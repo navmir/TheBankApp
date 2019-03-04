@@ -1,0 +1,69 @@
+﻿@import '../../variables.scss';
+
+.start-view {
+    background-color: $color-5;
+}
+
+.start-form {
+    max-width: 600px;
+    margin: 0px auto;
+}
+
+.house-logo {
+    background-image: url('https://image.flaticon.com/icons/svg/1464/1464299.svg');
+    background-repeat: no-repeat;
+    background-color: $color-2;
+    background-position: center top;
+    background-position-y: 20%;
+    padding-top: 135px;
+    border: 1px ridge;
+    background-size: 110px;
+    width: 350px;
+    height: 180px;
+    font-size: 20px;
+}
+
+.login-logo {
+    background-image: url('https://image.flaticon.com/icons/svg/1465/1465504.svg');
+    background-repeat: no-repeat;
+    background-color: $color-2;
+    background-position: center top;
+    background-position-y: 20%;
+    padding-top: 135px;
+    border: 1px ridge;
+    background-size: 110px;
+    width: 350px;
+    height: 180px;
+    font-size: 20px;
+}
+
+.contact-logo {
+    background-image: url('https://image.flaticon.com/icons/svg/1470/1470002.svg');
+    background-repeat: no-repeat;
+    background-color: $color-2;
+    background-position: center top;
+    background-position-y: 20%;
+    padding-top: 135px;
+    border: 1px ridge;
+    background-size: 110px;
+    width: 350px;
+    height: 180px;
+    font-size: 20px;
+}
+
+.btn-apply {
+    float: left;
+}
+
+.btn-login {
+    float: left;
+}
+
+
+.btn-contact {
+    float: left;
+}
+
+.space {
+    margin-top: 60px;
+}
