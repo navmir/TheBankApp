@@ -1,5 +1,10 @@
 ﻿import React from 'react'
+
 import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -23,11 +28,12 @@ const styles = theme => ({
 });
 
 function InputField(props) {
+const { valueChanged } = props;
     return <Grid item xs={12}>
         <TextField
             label={props.label}
             fullWidth
-            onChange={props.valueChanged}
+            onChange={valueChanged}
             value={props.value} />
     </Grid>
 }
@@ -41,20 +47,43 @@ const RegisterView = (props) => {
                     <Grid item xs={12}>
                         <Typography component="h1" variant="h4" align="center">
                             Fyll i uppgifter för att registrera konto
+                            <br />
+                            <br />
                         </Typography>
                     </Grid>
-                    <InputField valueChanged={props.nameChanged}
+                    <InputField valueChanged={props.updateValue('name')}
                         label="Namn"
                         value={props.name} />
-                    <InputField valueChanged={props.ssnChanged}
+                    <InputField valueChanged={props.updateValue('ssn')}
                         label="Personnummer"
                         value={props.ssn} />
-                    <InputField valueChanged={props.emailChanged}
+                    <InputField valueChanged={props.updateValue('email')}
                         label="E-post"
                         value={props.email} />
-                    <InputField valueChanged={props.phoneChanged}
+                    <InputField valueChanged={props.updateValue('phone')}
                         label="Telefonnummer"
                         value={props.phone} />
+                    <Grid item xs={12}>
+                        <TextField 
+                          fullWidth
+                          id="register-password"
+                          type={props.showPassword ? 'text' : 'password'}
+                          label="Lösenord"
+                          value={props.password}
+                          onChange={props.updateValue('password')}
+                          InputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <IconButton
+                                  aria-label="Gör lösenordet synligt"
+                                  onClick={props.onClickShowPassword}
+                                >
+                                  {props.showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                              </InputAdornment>
+                            ), 
+                        }} />
+                    </Grid>
                     <Grid item xs={12}>
                         <Button onClick={props.onClick} variant="contained" color="primary" component="span">
                             Registrera

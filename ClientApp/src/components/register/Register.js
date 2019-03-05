@@ -9,27 +9,18 @@ export default class Register extends Component {
             ssn: "",
             email: "",
             phone: "",
-            isSubmitted: false
+            password: "",
+            isSubmitted: false,
+            showPassword: false,
         };
     }
 
-    updateName = event => {
-        this.setState({ name: event.target.value });
-        console.log(this.state);
+    handleClickShowPassword = () => {
+        this.setState(state => ({ showPassword: !state.showPassword }));
     }
 
-    updateSSN = event => {
-        this.setState({ ssn: event.target.value });
-        console.log(this.state);
-    }
-
-    updateEmail = event => {
-        this.setState({ email: event.target.value });
-        console.log(this.state);
-    }
-
-    updatePhone = event => {
-        this.setState({ phone: event.target.value });
+    handleChange = prop => event => {
+        this.setState({ [prop]: event.target.value });
         console.log(this.state);
     }
 
@@ -47,10 +38,9 @@ export default class Register extends Component {
                 ssn={this.state.ssn}
                 email={this.state.email}
                 phone={this.state.phone}
-                nameChanged={this.updateName}
-                ssnChanged={this.updateSSN}
-                emailChanged={this.updateEmail}
-                phoneChanged={this.updatePhone}
+                showPassword={this.state.showPassword}
+                updateValue={this.handleChange}
+                onClickShowPassword={this.handleClickShowPassword}
                 onClick={this.saveInput} />
         }
     }

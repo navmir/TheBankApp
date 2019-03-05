@@ -32,12 +32,12 @@ const styles = theme => ({
 });
 
 function InputField(props) {
-const { valuechanged } = props;
+const { valueChanged } = props;
     return <Grid item xs={12}>
         <TextField
             label={props.label}
             fullWidth
-            onChange={valuechanged}
+            onChange={valueChanged}
             value={props.value} />
     </Grid>
 }
@@ -54,7 +54,7 @@ const LoginView = (props) => {
                             Logga in
                         </Typography>
                     </Grid>
-                    <InputField valuechanged={props.updateValue('ssn')}
+                    <InputField valueChanged={props.updateValue('ssn')}
                         label="Personnummer"
                         value={props.ssn} />
                     <Grid item xs={12}>
