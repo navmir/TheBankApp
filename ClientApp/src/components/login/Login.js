@@ -7,17 +7,17 @@ export default class Login extends Component {
         this.state = {
             ssn: "",
             password: "",
-            isSubmitted: false
+            isSubmitted: false,
+            showPassword: false,
         };
     }
 
-    updateSSN = event => {
-        this.setState({ ssn: event.target.value });
-        console.log(this.state);
+    handleClickShowPassword = () => {
+        this.setState(state => ({ showPassword: !state.showPassword }));
     }
 
-    updatePassword = event => {
-        this.setState({ password: event.target.value });
+    handleChange = prop => event => {
+        this.setState({ [prop]: event.target.value });
         console.log(this.state);
     }
 
@@ -26,6 +26,7 @@ export default class Login extends Component {
         console.log(this.state);
     }
 
+
     render() {
         if (this.state.isSubmitted) {
             return <div>VEE</div>
@@ -33,9 +34,10 @@ export default class Login extends Component {
             return <LoginView
                 ssn={this.state.ssn}
                 password={this.state.password}
-                ssnChanged={this.updateSSN}
-                passwordChanged={this.updatePassword}
-                onClick={this.saveInput} />
+                showPassword={this.state.showPassword}
+                onClick={this.saveInput}
+                onClickShowPassword={this.handleClickShowPassword}
+                updateValue={this.handleChange} />
         }
     }
 }

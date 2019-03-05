@@ -19,17 +19,17 @@ export default class Register extends Component {
     }
 
     updateSSN = event => {
-        this.setState({ age: event.target.value });
+        this.setState({ ssn: event.target.value });
         console.log(this.state);
     }
 
     updateEmail = event => {
-        this.setState({ amount: event.target.value });
+        this.setState({ email: event.target.value });
         console.log(this.state);
     }
 
     updatePhone = event => {
-        this.setState({ duration: event.target.value });
+        this.setState({ phone: event.target.value });
         console.log(this.state);
     }
 

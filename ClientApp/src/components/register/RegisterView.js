@@ -40,7 +40,7 @@ const RegisterView = (props) => {
                 <Grid container spacing={16}>
                     <Grid item xs={12}>
                         <Typography component="h1" variant="h4" align="center">
-                            Fyll i uppgifter
+                            Fyll i uppgifter för att registrera konto
                         </Typography>
                     </Grid>
                     <InputField valueChanged={props.nameChanged}
